@@ -17,7 +17,7 @@ function App() {
     const data = await response.json();
     setMyRecipes(data.hits);
   }
-  
+
   getRec()},[wordSubmitted]);
 
 const myRecipeSearch = (e) => {
@@ -38,19 +38,18 @@ return (
     <div className='container'>
       <form onSubmit={finalSearch}>
         <input className='search' placeholder='Search ...' onChange={myRecipeSearch} value={mySearch}></input>
+        <div className='container'>
+          <button>
+            <img src="https://img.icons8.com/fluency/48/000000/fry.png" className='icons' alt="search"/>
+          </button>
+        </div>
       </form>
     </div>
-    <div className='container'>
-      <button>
-        <img src="https://img.icons8.com/fluency/48/000000/fry.png" className='icons' alt="search"/>
-      </button>
-    </div>
+
   
   <div>
     {myRecipes.map((element, index) => ( 
-      <div key = {index}>
-        <MyRecipesComponent label = {element.recipe.label} image = {element.recipe.image} calories = {element.recipe.calories} ingredientLines = {element.recipe.ingredientLines}/>
-      </div>
+        <MyRecipesComponent key = {index} label = {element.recipe.label} image = {element.recipe.image} calories = {element.recipe.calories} ingredientLines = {element.recipe.ingredientLines}/>
     ))}
   </div>
   
